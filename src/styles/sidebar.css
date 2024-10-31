@@ -1,0 +1,28 @@
+.container-sidebar__div {
+    height: 100%;
+    background-color: rgb(234, 236, 239);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-um__Image{
+    margin-top: 20px;
+}
+
+.select-weather__div{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.select-weather-text__p{
+    font-weight: bold;
+}
+
+.icon-weather__p{
+    margin-bottom: 5px !important;
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}

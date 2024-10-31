@@ -1,0 +1,22 @@
+.row-ctn-conditions__div{
+    padding: 15px;
+}
+
+.air-conditions-text__p{
+    font-weight: bold;
+    color: #9399a2ff;
+}
+
+.real-feel__p{
+    color: #9399a2ff;
+    margin-bottom: 0px !important;
+}
+
+.temperature-real-feel__p{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.detail-condititions__div{
+   padding-left: 45px;
+}

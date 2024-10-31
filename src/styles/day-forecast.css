@@ -1,0 +1,33 @@
+.day-forecast-text__p{
+    font-weight: bold;
+    color: #9399a2ff;
+}
+
+.row-ctn-day-forecast__div{
+    padding: 15px;
+}
+
+.day-text__p{
+    color: #9399a2ff;
+    margin-bottom: 0px !important;
+}
+
+.weather-text__span{
+  
+    font-weight: bold;
+}
+
+.date-text__p{
+    color: #9399a2ff;
+    margin-bottom: 0px !important;
+}
+
+.day-forecast-detail__div{
+    display: flex;
+    justify-content: space-between;	
+    align-items: center;
+}
+
+.day-forecast-detail__div{
+    margin-bottom: 41px;
+}

@@ -1,7 +1,7 @@
 const Forecast = () => {
     return (
         <>
-        
+         Trang chủ
         </>
     )
 }

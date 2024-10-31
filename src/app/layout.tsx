@@ -4,6 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import { ToastContainer } from "react-toastify";
+import { Container } from "react-bootstrap";
+import Sidebar from "@/components/sidebar";
+import "@/styles/layout.css"
+import Search from "@/components/search";
 const inter = Inter({ subsets: ["latin"] });
 
 export const dynamic = "force-dynamic";
@@ -21,20 +25,43 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}`}>
-        {children}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"/>
-        {/* Same as */}
-        <ToastContainer />
+        <Container fluid className="container-fluid__Container" >
+          <div className="row container-row__div" >
+            <div className="col-1" >
+              <Sidebar />
+            </div>
+            <div className="col-11" >
+              {/* <div className="row" >
+                <div className="col-8" >
+                  <div className="container-search__div" >
+                    <Search />
+                  </div>
+                  <div className="col-4"></div>
+                </div>
+              </div> */}
+              <div className="row" >
+                <div className="container-content__div" >
+                  {children}
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light" />
+                  {/* Same as */}
+                  <ToastContainer />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </Container>
+
       </body>
     </html>
   );
