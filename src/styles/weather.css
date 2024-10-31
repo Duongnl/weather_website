@@ -1,0 +1,24 @@
+.container-temperature__div{
+    /* height: 200px; */
+    /* background-color: aquamarine; */
+    margin-top: 20px;
+    margin-bottom: 20px;   
+}
+
+.container-today-forecast__div{
+    background-color: rgb(234, 236, 239);
+    border-radius: 20px;
+    margin-bottom: 20px;   
+}
+
+.air-conditions__div{
+    background-color: rgb(234, 236, 239);
+    border-radius: 20px;
+}
+
+.container-day-forecast__div{
+    background-color: rgb(234, 236, 239);
+    border-radius: 20px;
+    margin-top: 45px;
+}
+

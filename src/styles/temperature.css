@@ -1,0 +1,23 @@
+.container-inf-temperature__div{
+    margin-left: 60px;
+}
+.temperature__div{
+    margin-top: 10px;
+
+}
+
+.location__p{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 0px !important;
+}
+
+.temperature_p{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 0px !important ;
+}
+
+.chance-rain_p{
+    color:#9399a2ff ;
+}
