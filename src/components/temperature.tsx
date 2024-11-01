@@ -26,7 +26,7 @@ const Temperature = (props:IProps) => {
                 <div className="col-12 col-sm-6 col-md-6" >
                     <div className='container-imge__div' >
                         <Image
-                            src={HandleIcon(dataWeather||undefined)}
+                            src={HandleIcon(dataWeather?.weather[0].icon)}
                             alt="Picture of the author"
                             width={150}
                             height={150}

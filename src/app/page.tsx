@@ -12,6 +12,7 @@ const Weather =  () => {
 
   const [dataWeather, setDataWeather] = useState<WeatherResponse | undefined>(undefined);
   const [city,setCity] = useState<string>("Ho chi minh")
+  const [dataForecast, setDataForecast] = useState<ForecastResponse | undefined> (undefined);
 
 
   useEffect(() => {
@@ -31,7 +32,26 @@ const Weather =  () => {
         toast.error("Không tìm thấy tỉnh/ thành phố")
       }
     }
+
+    const fetchForecastCity = async () => {
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=vi&appid=d26b87ca6c882f50c297a6fed54d2ecf`, {
+        method: "GET",
+        headers: {
+          'Accept': 'application/json' // Thêm tiêu đề để yêu cầu JSON
+        },
+      });
+
+      const data = await res.json();
+      if (data.cod == 200) {
+        setDataForecast(data)
+      }
+    }
+
+
+
     fetchWeatherCity()
+    fetchForecastCity()
+   
   }, [city])
 
 
@@ -53,15 +73,21 @@ const Weather =  () => {
             />
           </div>
           <div className='container-today-forecast__div' >
-            <TodayForecast />
+            <TodayForecast 
+            dataForecast = {dataForecast}
+            />
           </div>
           <div className='air-conditions__div' >
-            <AirConditions />
+            <AirConditions 
+              dataWeather = {dataWeather}
+            />
           </div>
         </div>
         <div className='col-12 col-md-4' >
           <div className='container-day-forecast__div' >
-            <DayForecast />
+            <DayForecast 
+               dataForecast = {dataForecast}
+            />
           </div>
         </div>
       </div>
