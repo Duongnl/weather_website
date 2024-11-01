@@ -2,3 +2,8 @@
     padding: 15px;
     height: calc(100vh);
 }
+
+.background-image__Image{
+    object-fit: cover;
+     z-index: -1;
+}

@@ -1,6 +1,6 @@
 .day-forecast-text__p{
     font-weight: bold;
-    color: #9399a2ff;
+    color: rgb(78, 78, 88);
 }
 
 .row-ctn-day-forecast__div{
@@ -8,8 +8,9 @@
 }
 
 .day-text__p{
-    color: #9399a2ff;
+    color: rgb(41, 41, 43);
     margin-bottom: 0px !important;
+    padding-top: 9px;
 }
 
 .weather-text__span{
@@ -18,15 +19,11 @@
 }
 
 .date-text__p{
-    color: #9399a2ff;
+    color: rgb(41, 41, 43);
     margin-bottom: 0px !important;
+    padding-top: 9px;
 }
 
-.day-forecast-detail__div{
-    display: flex;
-    justify-content: space-between;	
-    align-items: center;
-}
 
 .day-forecast-detail__div{
     margin-bottom: 41px;

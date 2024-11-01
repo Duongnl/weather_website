@@ -1,82 +1,52 @@
 import "@/styles/today-forecast.css"
+import { formatTo12HourTime } from "@/utils/handle-day-time"
+import { HandleIcon } from "@/utils/handle-icon"
+import { HandleTemperature } from "@/utils/handle-temperature"
 import Image from 'next/image'
-const TodayForecast = () => {
+import { useEffect, useState } from "react"
+
+interface IProps {
+    dataForecast: ForecastResponse | undefined
+}
+
+const TodayForecast = (props: IProps) => {
+    const { dataForecast } = props
+    const [forecasts, setForecasts] = useState<ForecastItemResponse[]>([])
+
+    useEffect(() => {
+        function isAfterNow(dateString: string): boolean {
+            const inputDate = new Date(dateString);
+            const now = new Date();
+
+            return inputDate > now;
+        }
+        const handleForecast = () => {
+            let list: ForecastItemResponse[] = [];
+            dataForecast?.list.forEach(forecast => { isAfterNow(forecast.dt_txt) && list.length < 6 && list.push(forecast) })
+            setForecasts(list)
+        }
+        handleForecast()
+    }, [dataForecast])
+
+
     return (
         <>
             <div className="row ctn__forecast">
-                <p className="forecast-text__p" >Dự báo trong ngày</p>
-                <div className="col-2" >
-                    <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/sunny.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
+                <p className="forecast-text__p" >Dự báo thời gian tiếp theo</p>
+                {forecasts?.map((forecast,index) => (<>
+                    <div className="col-2" key={index} >
+                        <div className="container-detail__div" >
+                            <p className="time__p">{formatTo12HourTime(forecast.dt_txt)}</p>
+                            <Image
+                                src={ HandleIcon(forecast.weather[0].icon) }
+                                alt="Picture of the author"
+                                width={50}
+                                height={50}
+                            />
+                            <p className="temperature-forecast__div" >{HandleTemperature(forecast.main.temp)}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="col-2" >
-                <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/cloudy.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
-                    </div>
-                </div>
-                <div className="col-2" >
-                <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/rain.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
-                    </div>
-                </div>
-                <div className="col-2" >
-                <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/cloudy-sunny.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
-                    </div>
-                </div>
-                <div className="col-2" >
-                <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/rain.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
-                    </div>
-                </div>
-                <div className="col-2" >
-                <div className="container-detail__div" >
-                        <p className="time__p">6:00 AM</p>
-                        <Image
-                            src="/images/sunny.png"
-                            alt="Picture of the author"
-                            width={50}
-                            height={50}
-                        />
-                        <p className="temperature-forecast__div" >20°</p>
-                    </div>
-                </div>
+                </>))}
             </div>
         </>
     )

@@ -10,14 +10,16 @@
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 0px !important;
+    color: white;
 }
 
 .temperature_p{
     font-weight: bold;
     font-size: 35px;
     margin-bottom: 0px !important ;
+    color: white;
 }
 
 .chance-rain_p{
-    color:#9399a2ff ;
+    color:white ;
 }
