@@ -1,6 +1,5 @@
 "use client"
 import Temperature from '@/components/temperature';
-import Button from 'react-bootstrap/Button';
 import "@/styles/weather.css"
 import TodayForecast from '@/components/today-forecast';
 import AirConditions from '@/components/air-conditions';
@@ -8,7 +7,6 @@ import DayForecast from '@/components/day-forecast';
 import Search from '@/components/search';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { HandleDayTime } from '@/utils/handle-day-time';
 const Weather = () => {
 
   const [dataWeather, setDataWeather] = useState<WeatherResponse | undefined>(undefined);

@@ -1,8 +1,6 @@
 "use client"
 import "@/styles/search.css"
 import { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Select from 'react-select'
 import { toast } from "react-toastify";
 interface IProps {
