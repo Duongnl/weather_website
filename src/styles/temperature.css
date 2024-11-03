@@ -1,5 +1,5 @@
 .container-inf-temperature__div{
-    margin-left: 60px;
+   padding-left: 60px;
 }
 .temperature__div{
     margin-top: 10px;
@@ -22,4 +22,21 @@
 
 .chance-rain_p{
     color:white ;
+}
+
+
+@media (max-width: 543px) {
+    .container-inf-temperature__div{
+       padding: 0px;
+    }
+}
+
+@media (max-width: 423px) {
+    .temperature_p{
+        font-size: 30px;
+    }
+
+    .location__p{
+        font-size: 25px;
+    }
 }

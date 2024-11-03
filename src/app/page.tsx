@@ -8,12 +8,12 @@ import DayForecast from '@/components/day-forecast';
 import Search from '@/components/search';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-const Weather =  () => {
+import { HandleDayTime } from '@/utils/handle-day-time';
+const Weather = () => {
 
   const [dataWeather, setDataWeather] = useState<WeatherResponse | undefined>(undefined);
-  const [city,setCity] = useState<string>("Ho chi minh")
-  const [dataForecast, setDataForecast] = useState<ForecastResponse | undefined> (undefined);
-
+  const [city, setCity] = useState<string>("Ho chi minh")
+  const [dataForecast, setDataForecast] = useState<ForecastResponse | undefined>(undefined);
 
   useEffect(() => {
 
@@ -51,42 +51,40 @@ const Weather =  () => {
 
     fetchWeatherCity()
     fetchForecastCity()
-   
+
   }, [city])
-
-
-
-
 
   return (
     <>
-      <div className='row' >
+      <div className='row ctn-content__div' >
         <div className='col-12 col-md-8' >
-          <div className="container-search__div" >
-            <Search
-              setCity = {setCity}
-            />
-          </div>
-          <div className='container-temperature__div' >
-            <Temperature
-              dataWeather={dataWeather}
-            />
-          </div>
-          <div className='container-today-forecast__div' >
-            <TodayForecast 
-            dataForecast = {dataForecast}
-            />
-          </div>
-          <div className='air-conditions__div' >
-            <AirConditions 
-              dataWeather = {dataWeather}
-            />
-          </div>
+   
+            <div className="row container-search__div" >
+              <Search
+                setCity={setCity}
+              />
+            </div>
+            <div className='row container-temperature__div' >
+              <Temperature
+                dataWeather={dataWeather}
+              />
+            </div>
+            <div className='container-today-forecast__div' >
+              <TodayForecast
+                dataForecast={dataForecast}
+              />
+            </div>
+            <div className='air-conditions__div' >
+              <AirConditions
+                dataWeather={dataWeather}
+              />
+            </div>
         </div>
+
         <div className='col-12 col-md-4' >
-          <div className='container-day-forecast__div' >
-            <DayForecast 
-               dataForecast = {dataForecast}
+          <div className='row container-day-forecast__div' >
+            <DayForecast
+              dataForecast={dataForecast}
             />
           </div>
         </div>

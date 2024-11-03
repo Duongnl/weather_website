@@ -1,44 +1,65 @@
 "use client"
 import "@/styles/search.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Select from 'react-select'
+import { toast } from "react-toastify";
 interface IProps {
-    setCity:(city:string)=>void
+    setCity: (city: string) => void
 }
 
-const Search = (props:IProps) => {
-    
-    const {setCity} = props
-    const [search, setSearch] = useState<string> ("");
+const Search = (props: IProps) => {
 
-    const handleSearch = () => {
-        setCity(search)
-    }
+    const { setCity } = props
+    const [search, setSearch] = useState<string>("");
+    const [options, setOptions] = useState()
+    const [selectOption, setSelectOption] = useState<{ value: string; label: string }>({
+        value: "Thành phố Hồ Chí Minh",
+        label: "Thành phố Hồ Chí Minh"
+    })
+
+    const handleChange = (option: { value: string; label: string } | null) => {
+        if (option == null) {
+            toast.error("Không tìm thấy Quận/Thành phố")
+        } else {
+            setSelectOption(option);
+            setCity(option.value)
+        }
+
+        console.log("vao day")
+
+    };
+
+    useEffect(() => {
+        const fetchCity = async () => {
+            const res = await fetch(`https://run.mocky.io/v3/d80717b0-04bd-43cb-8041-b38bbfd082f8`, {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json' // Thêm tiêu đề để yêu cầu JSON
+                },
+            });
+
+            const data = await res.json();
+            setOptions(data)
+            console.log("city >>> ", data)
+        }
+        fetchCity()
+    }, [])
+
 
     return (
         <>
 
-            <div className="search__div" >
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon1">
-                        <i className="fa-solid fa-magnifying-glass-location"></i>
-                    </InputGroup.Text>
-                    <Form.Control
-                    className="search__Form"
-                        placeholder="Tên thành phố/tỉnh"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                        value={search}
-                        onChange={(e)=> {setSearch(e.target.value)}}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                // Gọi hàm xử lý khi nhấn Enter
-                                handleSearch();
-                            }
-                        }}
-                    />
-                </InputGroup>
+            <div className="col ctn-search-item__div" >
+                <i className="fa-solid fa-magnifying-glass-location icon-search__i"></i>
+
+                <Select options={options}
+                    className="select-city__Select"
+                    placeholder="Quận/Thành phố"
+                    value={selectOption}
+                    onChange={handleChange}
+                />
             </div>
 
         </>

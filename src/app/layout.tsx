@@ -24,55 +24,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let  isDay:boolean = HandleDayTime();
+  const backgroundStyle = {
+    backgroundImage: isDay 
+      ? 'url("/images/background-day.jpg")' 
+      : 'url("/images/background-night.jpg")',
+    margin:'0',
+    padding: '0'
+  };
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className}`}>
+    <html lang="en"   suppressHydrationWarning>
+      <body className={`${inter.className}`} style={backgroundStyle}>
         <Container fluid className="container-fluid__Container" >
-          {HandleDayTime() ? (<>
-            <Image className='background-image__Image'
-            src="/images/background-day.jpg"
-            alt="Picture of the author"
-            fill // Tự động điều chỉnh kích thước
-          />
-          </>) : (<>
-            <Image className='background-image__Image'
-            src="/images/background-night.jpg"
-            alt="Picture of the author"
-            fill // Tự động điều chỉnh kích thước
-          />
-          </>)}    
+      
           <div className="row container-row__div" >
-            <div className="col-1" >
+            <div className="col-1 col-sidebar__div" >
               <Sidebar />
             </div>
-            <div className="col-11" >
-              {/* <div className="row" >
-                <div className="col-8" >
-                  <div className="container-search__div" >
-                    <Search />
-                  </div>
-                  <div className="col-4"></div>
-                </div>
-              </div> */}
-              <div className="row" >
-                <div className="container-content__div" >
-                  {children}
-                  <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light" />
-                  {/* Same as */}
-                  <ToastContainer />
-                </div>
+            <div className="col-11 col-children__div" >
 
-              </div>
+              {children}
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light" />
+              {/* Same as */}
+              <ToastContainer />
             </div>
           </div>
         </Container>
