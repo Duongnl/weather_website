@@ -14,7 +14,7 @@ const Search = (props: IProps) => {
     const [options, setOptions] = useState()
     const [selectOption, setSelectOption] = useState<{ value: string; label: string }>({
         value: "Thành phố Hồ Chí Minh",
-        label: "Tìm kiếm thành phố"
+        label: "Tìm kiếm quận/thành phố"
     })
 
     const handleChange = (option: { value: string; label: string } | null) => {
