@@ -32,7 +32,7 @@ const DayForecast = (props: IProps) => {
 
         // Chuyển đổi các mảng nhóm thành biến
         const dayTimeArrays = Object.values(groupedByDate);
-        let list: ForecastHandleResponse[] = []
+        const list: ForecastHandleResponse[] = []
         dayTimeArrays.forEach(dayTime => {
             let temp = 0
             let feels_like = 0
@@ -41,7 +41,7 @@ const DayForecast = (props: IProps) => {
             let visibility = 0
             let speed = 0
             let all = 0
-            let forecast: ForecastHandleResponse = {
+            const forecast: ForecastHandleResponse = {
                 date: dayTime[0].dt_txt.split(" ")[0],
                 icon:0,
                 temp: 0,
@@ -52,7 +52,7 @@ const DayForecast = (props: IProps) => {
                 speed: 0,
                 all: 0
             };
-            let iconList:number[] = []
+            const iconList:number[] = []
             dayTime.forEach(fo => {
                 temp += fo.main.temp
                 feels_like += fo.main.feels_like

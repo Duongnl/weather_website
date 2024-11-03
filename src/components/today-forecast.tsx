@@ -21,10 +21,14 @@ const TodayForecast = (props: IProps) => {
             return inputDate > now;
         }
         const handleForecast = () => {
-            let list: ForecastItemResponse[] = [];
-            dataForecast?.list.forEach(forecast => { isAfterNow(forecast.dt_txt) && list.length < 6 && list.push(forecast) })
-            setForecasts(list)
-        }
+            const list: ForecastItemResponse[] = [];
+            dataForecast?.list.forEach(forecast => {
+                if (isAfterNow(forecast.dt_txt) && list.length < 6) {
+                    list.push(forecast);
+                }
+            });
+            setForecasts(list);
+        };
         handleForecast()
     }, [dataForecast])
 

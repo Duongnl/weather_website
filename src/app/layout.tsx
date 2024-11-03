@@ -7,8 +7,6 @@ import { ToastContainer } from "react-toastify";
 import { Container } from "react-bootstrap";
 import Sidebar from "@/components/sidebar";
 import "@/styles/layout.css"
-import Search from "@/components/search";
-import Image from 'next/image'
 import { HandleDayTime } from "@/utils/handle-day-time";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let  isDay:boolean = HandleDayTime();
+  const  isDay:boolean = HandleDayTime();
   const backgroundStyle = {
     backgroundImage: isDay 
       ? 'url("/images/background-day.jpg")' 
