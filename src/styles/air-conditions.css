@@ -1,10 +1,8 @@
-.row-ctn-conditions__div{
-    padding: 15px;
-}
-
 .air-conditions-text__p{
     font-weight: bold;
     color: rgb(78, 78, 88);
+    margin-bottom: 0px;
+    padding: 0px;
 }
 
 .real-feel__p{
@@ -20,3 +18,35 @@
 .detail-condititions__div{
    padding-left: 45px;
 }
+
+.ctn-item-conditions_div{
+    height: 100%;
+    background-color: rgba(234, 236, 239, 0.7); 
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 60%), 0 2px 10px 0 rgb(0 0 0 / 60%);
+    padding: 10px;
+}
+
+@media (max-width: 767px) {
+   .temperature-real-feel__p{
+    margin-left: 10px;
+    font-size: 20px;
+   }
+   .detail-condititions__div{
+    padding-left: 0px;
+    display: flex;
+    align-items: baseline;
+   }
+}
+
+
+@media (max-height: 799px) {
+    .temperature-real-feel__p{
+        margin-left: 10px;
+    }
+    .detail-condititions__div{
+        display: flex;
+        align-items: baseline;
+       }
+ }
+

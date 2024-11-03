@@ -11,8 +11,8 @@ const Temperature = (props:IProps) => {
     const {dataWeather} = props
     return (
         <>
-            <div className="row" >
-                <div className="col-12 col-sm-6 col-md-6" >
+           
+                <div className="col-6 col-sm-6 col-md-6" >
                     <div  className='container-inf-temperature__div'>
                         <div className="location__div" >
                             <p className="location__p" >{dataWeather?.name}</p>
@@ -23,7 +23,7 @@ const Temperature = (props:IProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-12 col-sm-6 col-md-6" >
+                <div className="col-6 col-sm-6 col-md-6" >
                     <div className='container-imge__div' >
                         <Image
                             src={HandleIcon(dataWeather?.weather[0].icon)}
@@ -34,7 +34,6 @@ const Temperature = (props:IProps) => {
                     </div>
 
                 </div>
-            </div>
 
         </>
     )

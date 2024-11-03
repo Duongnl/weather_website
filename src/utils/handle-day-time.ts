@@ -7,10 +7,10 @@ export const HandleDayTime = (): boolean => {
 export const handleBeforeDay = (dateString: string): boolean => {
     // Tạo đối tượng Date từ chuỗi
     const targetDate = new Date(dateString);
-
+    targetDate.setHours(0, 0, 0, 0);
     // Lấy ngày hiện tại
     const currentDate = new Date();
-
+    currentDate.setHours(0, 0, 0, 0);
     // So sánh hai ngày
     const isBefore = targetDate < currentDate;
     return isBefore

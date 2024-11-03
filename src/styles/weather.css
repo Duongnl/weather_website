@@ -1,34 +1,42 @@
+
+.container-day-forecast__div{
+    height: 100%;
+    padding: 10px;
+    padding-top: 65px;
+
+}
+
+@media (max-width: 767px) {
+    .container-day-forecast__div{
+
+        padding: 10px;
+
+    }
+}
+
+
+.ctn-content__div{
+    height: 100%;
+}
+
+.container-search__div{
+    height: 10%;
+    padding: 10px;
+}
+
 .container-temperature__div{
-    /* height: 200px; */
-    /* background-color: aquamarine; */
-    margin-top: 20px;
-    margin-bottom: 20px;   
+    height: 30%;
+    padding: 10px;
 }
 
 .container-today-forecast__div{
-    /* background-color: rgb(234, 236, 239); */
-    border-radius: 20px;
-    margin-bottom: 20px;   
-    /* background-color: #000; /* Màu nền tuỳ chọn */
-    /* opacity: 0.9;  */
-    background-color: rgba(234, 236, 239, 0.7); 
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 60%), 0 2px 10px 0 rgb(0 0 0 / 60%);
+    height: 35%;
+    padding: 10px;
+
 }
 
 .air-conditions__div{
-    background-color: rgb(234, 236, 239);
-    border-radius: 20px;
-    /* opacity: 0.9; */
-    background-color: rgba(234, 236, 239, 0.7); 
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 60%), 0 2px 10px 0 rgb(0 0 0 / 60%);
-}
-
-.container-day-forecast__div{
-    background-color: rgb(234, 236, 239);
-    border-radius: 20px;
-    margin-top: 45px;
-    /* opacity: 0.9; */
-    background-color: rgba(234, 236, 239, 0.7); 
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 60%), 0 2px 10px 0 rgb(0 0 0 / 60%);
-}
+    height: 25%;
+    padding: 10px;
+ }
 

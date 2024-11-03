@@ -20,6 +20,7 @@ const DayForecast = (props: IProps) => {
 
         dataForecast?.list.forEach(forec => {
             const date = forec.dt_txt.split(" ")[0]; // Lấy ngày từ chuỗi (phần trước dấu cách)
+         
             if (handleBeforeDay(date) == false) {
                 if (!groupedByDate[date]) {
                     groupedByDate[date] = []; // Khởi tạo mảng nếu chưa có
@@ -81,16 +82,16 @@ const DayForecast = (props: IProps) => {
 
     return (
         <>
-            <div className="row row-ctn-day-forecast__div" >
+            <div className="row-ctn-day-forecast__div" >
                 <p className="day-forecast-text__p" >Dự báo các ngày tiếp theo</p>
                 {forecasts?.map((forecast, index) => (
                     <>
                         <div className="row day-forecast-detail__div" key={index} >
                           
-                                <div className="col-4" >
+                                <div className="col-4 d-flex justify-content-center align-items-center" >
                                     <p className="day-text__p" >{handleDayOfWeek(forecast.date)}</p>
                                 </div>
-                                <div className="col-4" >
+                                <div className="col-4 d-flex justify-content-center align-items-center" >
                                     <div>
                                         <Image
                                             src={HandleIconForecast(forecast.icon)}
@@ -101,7 +102,7 @@ const DayForecast = (props: IProps) => {
                                         <span className="weather-text__span" >{HandleTemperature(forecast.temp)}</span>
                                     </div>
                                 </div>
-                                <div className="col-4" >
+                                <div className="col-4 d-flex justify-content-center align-items-center" >
                                     <p className="date-text__p" >{handleFomart(forecast.date)}</p>
                                 </div>
                        

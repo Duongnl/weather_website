@@ -31,8 +31,8 @@ const TodayForecast = (props: IProps) => {
 
     return (
         <>
-            <div className="row ctn__forecast">
-                <p className="forecast-text__p" >Dự báo thời gian tiếp theo</p>
+            <div className="row ctn-item-today-forecast__div">
+            <p className="forecast-text__p" >Dự báo thời gian tiếp theo</p>
                 {forecasts?.map((forecast,index) => (<>
                     <div className="col-2" key={index} >
                         <div className="container-detail__div" >
@@ -47,7 +47,9 @@ const TodayForecast = (props: IProps) => {
                         </div>
                     </div>
                 </>))}
+
             </div>
+              
         </>
     )
 }

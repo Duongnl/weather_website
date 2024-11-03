@@ -1,9 +1,28 @@
 .container-row__div{
-    padding: 15px;
-    height: calc(100vh);
+    height: 100%;
 }
 
-.background-image__Image{
-    object-fit: cover;
-     z-index: -1;
+.container-fluid__Container{
+    height: 100vh;
 }
+
+
+
+.col-sidebar__div{
+    padding: 10px;
+}
+
+
+@media (max-width: 1349px) {
+    .col-sidebar__div {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1349px) {
+    .col-children__div{
+        width: 100%;
+    }
+}
+
+
