@@ -33,7 +33,7 @@ const Search = (props: IProps) => {
 
     useEffect(() => {
         const fetchCity = async () => {
-            const res = await fetch(`https://run.mocky.io/v3/87aa901d-8f98-401e-a592-74f3d1d55251`, {
+            const res = await fetch(`https://run.mocky.io/v3/eff63099-dcaf-47af-8edf-e4228838f390`, {
                 method: "GET",
                 headers: {
                     'Accept': 'application/json' // Thêm tiêu đề để yêu cầu JSON
