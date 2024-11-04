@@ -1,9 +1,10 @@
 export const HandleDayTime = (): boolean => {
     const now = new Date();
-    const hour = now.getHours();
-    console.log(hour)
-    return hour >= 6 && hour < 18;
-}
+    const hour = now.getUTCHours() + 7; // Cộng thêm 7 giờ để chuyển sang giờ Việt Nam
+    const vietnamHour = hour >= 24 ? hour - 24 : hour; // Đảm bảo giờ không vượt quá 24
+    console.log(vietnamHour);
+    return vietnamHour >= 6 && vietnamHour < 18;
+};
 
 export const handleBeforeDay = (dateString: string): boolean => {
     // Tạo đối tượng Date từ chuỗi
