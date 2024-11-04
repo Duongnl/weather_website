@@ -8,6 +8,7 @@ import { Container } from "react-bootstrap";
 import Sidebar from "@/components/sidebar";
 import "@/styles/layout.css"
 import { HandleDayTime } from "@/utils/handle-day-time";
+import { MyProvider } from "@/MyContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const dynamic = "force-dynamic";
@@ -22,47 +23,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const  isDay:boolean = HandleDayTime();
+  const isDay: boolean = HandleDayTime();
   const backgroundStyle = {
-    backgroundImage: isDay 
-      ? 'url("/images/background-night.jpg")' 
+    backgroundImage: isDay
+      ? 'url("/images/background-night.jpg")'
       : 'url("/images/background-day.jpg")',
-    margin:'0',
+    margin: '0',
     padding: '0'
   };
 
   return (
-    <html lang="en"   suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/img.png" />
       </head>
       <body className={`${inter.className}`} style={backgroundStyle}>
-        <Container fluid className="container-fluid__Container" >
-      
-          <div className="row container-row__div" >
-            <div className="col-1 col-sidebar__div" >
-              <Sidebar />
-            </div>
-            <div className="col-11 col-children__div" >
+        <MyProvider>
+          <Container fluid className="container-fluid__Container" >
+            <div className="row container-row__div" >
+             
+                <Sidebar />
 
-              {children}
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light" />
-              {/* Same as */}
-              <ToastContainer />
+              <div className="col-11 col-children__div" >
+                {children}
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light" />
+                {/* Same as */}
+                <ToastContainer />
+              </div>
             </div>
-          </div>
-        </Container>
-
+          </Container>
+        </MyProvider>
       </body>
     </html>
   );

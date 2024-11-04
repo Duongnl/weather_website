@@ -32,3 +32,13 @@
     align-items: center;
     background-color: rgba(234, 236, 239, 0.2); 
 }
+
+.tab__Button{
+    display: none;
+}
+
+@media (max-width: 1349px) {
+    .tab__Button{
+        display: block;
+    }
+}
