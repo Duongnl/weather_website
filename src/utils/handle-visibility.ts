@@ -3,5 +3,5 @@ export const HandleVisibility = (visibility?: number) => {
         return "N/A"
     }
 
-    return visibility / 1000 + " km"; // Làm tròn giá trị đến số nguyên
+    return  Math.round(visibility/1000) + " km"; // Làm tròn giá trị đến số nguyên
 }
