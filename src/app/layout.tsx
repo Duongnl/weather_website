@@ -25,8 +25,8 @@ export default function RootLayout({
   const  isDay:boolean = HandleDayTime();
   const backgroundStyle = {
     backgroundImage: isDay 
-      ? 'url("/images/background-day.jpg")' 
-      : 'url("/images/background-night.jpg")',
+      ? 'url("/images/background-night.jpg")' 
+      : 'url("/images/background-day.jpg")',
     margin:'0',
     padding: '0'
   };

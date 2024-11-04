@@ -1,6 +1,7 @@
 export const HandleDayTime = (): boolean => {
     const now = new Date();
     const hour = now.getHours();
+    console.log(hour)
     return hour >= 6 && hour < 18;
 }
 
