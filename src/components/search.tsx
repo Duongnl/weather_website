@@ -1,6 +1,8 @@
 "use client"
+import { useMyContext } from "@/MyContext";
 import "@/styles/search.css"
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import Select from 'react-select'
 import { toast } from "react-toastify";
 interface IProps {
@@ -8,9 +10,9 @@ interface IProps {
 }
 
 const Search = (props: IProps) => {
+    const { sharedVar, setSharedVar } = useMyContext();
 
     const { setCity } = props
-    const [search, setSearch] = useState<string>("");
     const [options, setOptions] = useState()
     const [selectOption, setSelectOption] = useState<{ value: string; label: string }>({
         value: "Thành phố Hồ Chí Minh",
@@ -50,6 +52,9 @@ const Search = (props: IProps) => {
         <>
 
             <div className="col ctn-search-item__div" >
+                <Button variant="light" className="tab__Button" ><i className="fa-solid fa-bars"
+                onClick={()=>{setSharedVar(true)}}
+                ></i></Button>
                 <i className="fa-solid fa-magnifying-glass-location icon-search__i"></i>
 
                 <Select options={options}

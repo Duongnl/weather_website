@@ -28,3 +28,30 @@
     justify-content: center; /* Căn giữa theo chiều ngang */
 }
 
+
+@media (max-width: 1349px) {
+    .col-sidebar__div {
+        position: fixed;
+        top: 0;
+        left: -120px;
+        height: 100%;
+        width: 120px;   
+        transition: left 0.3s ease;
+        z-index: 9999;
+    }
+}
+.open {
+    left: 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu và độ trong suốt của lớp phủ */
+    z-index: 500; /* Đảm bảo lớp phủ dưới sidebar */
+   
+  }
