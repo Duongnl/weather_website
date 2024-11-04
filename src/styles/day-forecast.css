@@ -32,3 +32,14 @@
 .day-forecast-detail__div{
     margin-bottom: 41px;
 }
+
+@media (max-width: 465px) {
+.tem-icon-item__div{
+    display: flex;
+    flex-direction: column;
+}
+ }
+
+/* tem-icon-item__div */
+
+/* 465 */
