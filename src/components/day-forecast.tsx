@@ -92,7 +92,7 @@ const DayForecast = (props: IProps) => {
                                     <p className="day-text__p" >{handleDayOfWeek(forecast.date)}</p>
                                 </div>
                                 <div className="col-4 d-flex justify-content-center align-items-center" >
-                                    <div>
+                                    <div className="tem-icon-item__div" >
                                         <Image
                                             src={HandleIconForecast(forecast.icon)}
                                             alt="Picture of the author"
