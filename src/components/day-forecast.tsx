@@ -1,7 +1,7 @@
 import "@/styles/day-forecast.css"
 import { handleBeforeDay, handleDayOfWeek, handleFomart } from "@/utils/handle-day-time"
 import { findMostFrequentElement, HandleIconForecast } from "@/utils/handle-icon"
-import { HandleTemperature } from "@/utils/handle-temperature"
+import { findMaxNumber, findMinNumber, HandleTemperature } from "@/utils/handle-temperature"
 import Image from 'next/image'
 import { useEffect, useState } from "react"
 interface IProps {
@@ -34,7 +34,6 @@ const DayForecast = (props: IProps) => {
         const dayTimeArrays = Object.values(groupedByDate);
         const list: ForecastHandleResponse[] = []
         dayTimeArrays.forEach(dayTime => {
-            let temp = 0
             let feels_like = 0
             let humidity = 0
             let pop = 0
@@ -44,7 +43,8 @@ const DayForecast = (props: IProps) => {
             const forecast: ForecastHandleResponse = {
                 date: dayTime[0].dt_txt.split(" ")[0],
                 icon:0,
-                temp: 0,
+                tempMax: 0,
+                tempMin: 0,
                 feels_like: 0,
                 humidity: 0,
                 pop: 0,
@@ -54,7 +54,6 @@ const DayForecast = (props: IProps) => {
             };
             const iconList:number[] = []
             dayTime.forEach(fo => {
-                temp += fo.main.temp
                 feels_like += fo.main.feels_like
                 humidity += fo.main.humidity
                 pop += fo.pop
@@ -64,7 +63,8 @@ const DayForecast = (props: IProps) => {
                 iconList.push( parseInt(fo.weather[0].icon, 10) )
             })
             forecast.icon = findMostFrequentElement(iconList)
-            forecast.temp = temp / dayTime.length
+            forecast.tempMax = findMaxNumber(dayTime)
+            forecast.tempMin = findMinNumber(dayTime)
             forecast.feels_like = feels_like / dayTime.length
             forecast.humidity = humidity / dayTime.length
             forecast.pop = pop / dayTime.length
@@ -99,7 +99,7 @@ const DayForecast = (props: IProps) => {
                                             width={50}
                                             height={50}
                                         />
-                                        <span className="weather-text__span" >{HandleTemperature(forecast.temp)}</span>
+                                        <span className="weather-text__span" > {`${HandleTemperature(forecast.tempMin)} - ${HandleTemperature(forecast.tempMax)}`}</span>
                                     </div>
                                 </div>
                                 <div className="col-4 d-flex justify-content-center align-items-center" >

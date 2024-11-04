@@ -1,6 +1,7 @@
 interface ForecastHandleResponse {
     date:string,
-    temp:number,
+    tempMax:number,
+    tempMin:number,
     feels_like:number,
     humidity:number,
     pop:number,
