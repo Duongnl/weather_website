@@ -1,6 +1,7 @@
 "use client"
 import { useMyContext } from "@/MyContext";
 import "@/styles/search.css"
+import { tinhThanh } from "@/utils/tinhthanh";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Select from 'react-select'
@@ -13,7 +14,7 @@ const Search = (props: IProps) => {
     const { sharedVar, setSharedVar } = useMyContext();
 
     const { setCity } = props
-    const [options, setOptions] = useState()
+    const [options, setOptions] = useState(tinhThanh())
     const [selectOption, setSelectOption] = useState<{ value: string; label: string }>({
         value: "Thành phố Hồ Chí Minh",
         label: "Tìm kiếm quận / thành phố"
@@ -31,21 +32,6 @@ const Search = (props: IProps) => {
 
     };
 
-    useEffect(() => {
-        const fetchCity = async () => {
-            const res = await fetch(`https://run.mocky.io/v3/eff63099-dcaf-47af-8edf-e4228838f390`, {
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json' // Thêm tiêu đề để yêu cầu JSON
-                },
-            });
-
-            const data = await res.json();
-            setOptions(data)
-            console.log("city >>> ", data)
-        }
-        fetchCity()
-    }, [])
 
 
     return (
