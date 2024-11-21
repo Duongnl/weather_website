@@ -27,7 +27,7 @@ const Weather = () => {
       if (data.cod == 200) {
         setDataWeather(data)
       } else {
-        toast.error("Không tìm thấy tỉnh/ thành phố")
+        toast.error("Không tìm thấy tỉnh / thành phố")
       }
     }
 
